@@ -6,13 +6,12 @@
   <title>DASのテクニック (2): DASをチャージする | NES Tetris Japan Portal</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="壁チャージ (wall charge) NESテトリスのDASの仕様として、以下のものがありました。  横を押し続けても壁があってそれ以上移動できない場合、DASカウンターは最大値をとり続ける 壁方向に新たに横を入力した時に、即座にDASカウンターが最大値となる  壁チャージは、これらの仕様を利用するものです。 ここで言う壁とは、フィールドの端に限らず、ミノの移動に障害となるブロックも指します。つ">
-<meta name="keywords" content="DAS,壁チャージ,横の長押し">
 <meta property="og:type" content="article">
 <meta property="og:title" content="DASのテクニック (2): DASをチャージする">
 <meta property="og:url" content="https://nestetrisjp.github.io/das-keeping-tech-2/index.html">
 <meta property="og:site_name" content="NES Tetris Japan Portal">
 <meta property="og:description" content="壁チャージ (wall charge) NESテトリスのDASの仕様として、以下のものがありました。  横を押し続けても壁があってそれ以上移動できない場合、DASカウンターは最大値をとり続ける 壁方向に新たに横を入力した時に、即座にDASカウンターが最大値となる  壁チャージは、これらの仕様を利用するものです。 ここで言う壁とは、フィールドの端に限らず、ミノの移動に障害となるブロックも指します。つ">
-<meta property="og:locale" content="ja-jp">
+<meta property="og:locale" content="ja_JP">
 <meta property="og:image" content="https://nestetrisjp.github.io/images/apng/wall-charge-hold.png">
 <meta property="og:image" content="https://nestetrisjp.github.io/images/apng/wall-charge-tap.png">
 <meta property="og:image" content="https://nestetrisjp.github.io/images/apng/wall-charge-hold-real.png">
@@ -22,10 +21,13 @@
 <meta property="og:image" content="https://nestetrisjp.github.io/images/apng/i-piece-left-partially-charge.png">
 <meta property="og:image" content="https://nestetrisjp.github.io/images/apng/wall-charge-left-right-left-too-late.png">
 <meta property="og:image" content="https://nestetrisjp.github.io/images/apng/wall-charge-left-right-left-too-early.png">
-<meta property="og:updated_time" content="2018-09-06T05:42:05.146Z">
+<meta property="article:published_time" content="2018-08-25T00:00:00.000Z">
+<meta property="article:modified_time" content="2022-01-01T06:13:50.591Z">
+<meta property="article:author" content="suitougreentea">
+<meta property="article:tag" content="DAS">
+<meta property="article:tag" content="壁チャージ">
+<meta property="article:tag" content="横の長押し">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="DASのテクニック (2): DASをチャージする">
-<meta name="twitter:description" content="壁チャージ (wall charge) NESテトリスのDASの仕様として、以下のものがありました。  横を押し続けても壁があってそれ以上移動できない場合、DASカウンターは最大値をとり続ける 壁方向に新たに横を入力した時に、即座にDASカウンターが最大値となる  壁チャージは、これらの仕様を利用するものです。 ここで言う壁とは、フィールドの端に限らず、ミノの移動に障害となるブロックも指します。つ">
 <meta name="twitter:image" content="https://nestetrisjp.github.io/images/apng/wall-charge-hold.png">
   
     <link rel="alternate" href="/atom.xml" title="NES Tetris Japan Portal" type="application/atom+xml">
@@ -36,7 +38,9 @@
   
     <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
   
-  <link rel="stylesheet" href="/css/style.css">
+  
+<link rel="stylesheet" href="/css/style.css">
+
   
 <!-- Google Analytics -->
 <script type="text/javascript">
@@ -52,7 +56,7 @@ ga('send', 'pageview');
 <!-- End Google Analytics -->
 
 
-</head>
+<meta name="generator" content="Hexo 6.0.0"></head>
 
 <body>
   <div id="container">
@@ -116,7 +120,7 @@ ga('send', 'pageview');
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2>壁チャージ (wall charge)</h2>
+        <h2 id="壁チャージ-wall-charge">壁チャージ (wall charge)</h2>
 <p>NESテトリスのDASの仕様として、以下のものがありました。</p>
 <ul>
 <li><strong>横を押し続けても壁があってそれ以上移動できない場合、DASカウンターは最大値をとり続ける</strong></li>
@@ -125,37 +129,37 @@ ga('send', 'pageview');
 <p>壁チャージは、これらの仕様を利用するものです。</p>
 <p>ここで言う壁とは、フィールドの端に限らず、ミノの移動に障害となるブロックも指します。つまり、横に入力をしていてもミノが移動できない場合は常に、DASカウンターが最大値 (16) となっていることが保証されるのです！</p>
 <p>横を押し続けて壁にぶつかった時の、DASの挙動です。</p>
-<p><img class="apng-images" src="/images/apng/wall-charge-hold.png""></p>
+<img class="apng-images" src="/images/apng/wall-charge-hold.png" />
 <p>横を1回ずつ押して壁にぶつかった時の、DASの挙動です。</p>
-<p><img class="apng-images" src="/images/apng/wall-charge-tap.png""></p>
+<img class="apng-images" src="/images/apng/wall-charge-tap.png" />
 <p>実際のゲームでは、ミノを端まで持っていった後にも横を離さないことでチャージしたり、</p>
-<p><img class="apng-images" src="/images/apng/wall-charge-hold-real.png""></p>
+<img class="apng-images" src="/images/apng/wall-charge-hold-real.png" />
 <p>次のミノを遠くまで持っていきたい時やDASが切れてしまった時に「壁に引っ掛け」たりします。</p>
-<p><img class="apng-images" src="/images/apng/wall-charge-tap-real.png""></p>
+<img class="apng-images" src="/images/apng/wall-charge-tap-real.png" />
 <p>後者の引っ掛けは、段差さえあればどこでも使うことができますので、慣れればほぼいつでもDASチャージを行うことができます。</p>
 <p>引っ掛けて次に切り返すという芸当も可能です。最初のミノを左に移動して、地面で右に壁チャージ。AREの間に左に振り替えて、フルチャージで棒を移動できます。</p>
-<p><img class="apng-images" src="/images/apng/wall-charge-left-right-left-success.png""></p>
+<img class="apng-images" src="/images/apng/wall-charge-left-right-left-success.png" />
 <p>壁チャージの効能はこれだけではありません。<a href="/das-introduction/">DASの基本</a>において、チャージ状態にも10～16の値があると述べました。この違いは、以下のような「届く/届かない」の違いをもたらします。</p>
 <p>DASが15あるいは16の場合は、棒が高さ6の壁を越えて左に移動できます。</p>
-<p><img class="apng-images" src="/images/apng/i-piece-left-full-charge.png""></p>
+<img class="apng-images" src="/images/apng/i-piece-left-full-charge.png" />
 <p>一方、DASが10の場合、高さ5の壁すら越えることができません。</p>
-<p><img class="apng-images" src="/images/apng/i-piece-left-partially-charge.png""></p>
+<img class="apng-images" src="/images/apng/i-piece-left-partially-charge.png" />
 <p>実際のゲームではDASの値を見ることは出来ませんから、届く/届かないは時の運ということになってしまうのでしょうか？それともDASの値を、自身の操作から精密に予測あるいは調整する必要があるのでしょうか？答えは否です。壁チャージが成功すれば、フルチャージになっていることが保証されていますから、必ず「届く」のです。</p>
 <p>壁ではなくブロックに引っ掛ける壁チャージには、ある程度精密な操作が必要となります。例えば、入力（今回は右です）が遅すぎると、チャージが起こる前に接地してしまい、次の棒がフルチャージで移動を開始しないために、左に持っていくことができなくなります。</p>
-<p><img class="apng-images" src="/images/apng/wall-charge-left-right-left-too-late.png""></p>
+<img class="apng-images" src="/images/apng/wall-charge-left-right-left-too-late.png" />
 <p>逆に入力が早すぎると、引っ掛ける予定の壁の上にミノが移動してしまい、そこで接地してしまいます。新しく右入力をしてしまったため、DASがリセットされ、次のミノは全くと言っていいほど動かすことができません。</p>
-<p><img class="apng-images" src="/images/apng/wall-charge-left-right-left-too-early.png""></p>
+<img class="apng-images" src="/images/apng/wall-charge-left-right-left-too-early.png" />
 <p>壁チャージが成功する時間範囲は、落下速度と引っ掛ける壁の高さによって変わります。上の場合は2フレームに1マス落下する1/2Gの速度で、壁の高さが1マスなので、壁チャージが成功するのはたった2フレーム (1/30秒) となります。高速域ではもっと高い壁に引っ掛けた方がより安全ということは意識しておくべきでしょう。</p>
-<h2>横の長押し (extended tap)</h2>
+<h2 id="横の長押し-extended-tap">横の長押し (extended tap)</h2>
 <p>執筆中</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://nestetrisjp.github.io/das-keeping-tech-2/" data-id="cjlq5cwym0001zdr6ff7c3f31" data-title="DASのテクニック (2): DASをチャージする | NES Tetris Japan Portal" class="article-share-link">シェア</a>
+      <a data-url="https://nestetrisjp.github.io/das-keeping-tech-2/" data-id="ckxvfjy820001o5ol7akxblga" data-title="DASのテクニック (2): DASをチャージする | NES Tetris Japan Portal" class="article-share-link">シェア</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DAS/">DAS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/壁チャージ/">壁チャージ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/横の長押し/">横の長押し</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DAS/" rel="tag">DAS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%A3%81%E3%83%81%E3%83%A3%E3%83%BC%E3%82%B8/" rel="tag">壁チャージ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%A8%AA%E3%81%AE%E9%95%B7%E6%8A%BC%E3%81%97/" rel="tag">横の長押し</a></li></ul>
 
     </footer>
   </div>
@@ -192,7 +196,7 @@ ga('send', 'pageview');
   <div class="widget-wrap">
     <h3 class="widget-title">タグ</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/DAS/">DAS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ビタ止め/">ビタ止め</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/壁チャージ/">壁チャージ</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/横の長押し/">横の長押し</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/横タメの振り替え/">横タメの振り替え</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/DAS/" rel="tag">DAS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E3%83%93%E3%82%BF%E6%AD%A2%E3%82%81/" rel="tag">ビタ止め</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A3%81%E3%83%81%E3%83%A3%E3%83%BC%E3%82%B8/" rel="tag">壁チャージ</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A8%AA%E3%81%AE%E9%95%B7%E6%8A%BC%E3%81%97/" rel="tag">横の長押し</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A8%AA%E3%82%BF%E3%83%A1%E3%81%AE%E6%8C%AF%E3%82%8A%E6%9B%BF%E3%81%88/" rel="tag">横タメの振り替え</a></li></ul>
     </div>
   </div>
 
@@ -238,7 +242,7 @@ ga('send', 'pageview');
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2018 suitougreentea<br>
+      &copy; 2022 suitougreentea<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>,
       Theme based on <a href="https://github.com/hexojs/hexo-theme-landscape" target="_blank">Landscape</a>
     </div>
@@ -257,8 +261,12 @@ ga('send', 'pageview');
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/apng-canvas/2.1.1/apng-canvas.min.js"></script>
@@ -269,7 +277,9 @@ ga('send', 'pageview');
   });
 </script>
 
+
 <script src="/js/script.js"></script>
+
 
   </div>
 </body>
